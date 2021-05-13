@@ -9,13 +9,7 @@ export default class App extends React.Component {
 
     this.state = {
       dropdownTreeItems: [],
-      wrapper: new DropdownTreeWrapper(
-        '-seleccione-',
-        300,
-        true,
-        true,
-        'dropdown-tree'
-      )
+      wrapper: new DropdownTreeWrapper()
     };
   }
 

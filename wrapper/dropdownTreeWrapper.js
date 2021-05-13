@@ -2,14 +2,6 @@ var $ = require('jquery');
 import '~/dropdown-tree/js/dropdowntree.js';
 
 export default class DropdownTreeWrapper {
-  constructor(title, maxHeight, multiSelect, selectChildren, idComponente) {
-    this.title = title;
-    this.maxHeight = maxHeight;
-    this.multiSelect = multiSelect;
-    this.selectChildren = selectChildren;
-    this.idComponente = idComponente;
-  }
-
   map(data) {
     var self = this;
     var arrayResult = [];
@@ -42,39 +34,5 @@ export default class DropdownTreeWrapper {
     };
 
     return newOption;
-  }
-
-  createTree(dataOptions) {
-    var self = this;
-    var options = {
-      title: self.title,
-      data: dataOptions,
-      maxHeight: self.maxHeight,
-      multiSelect: self.multiSelect,
-      selectChildren: self.selectChildren
-    };
-    $('#' + self.idComponente).empty();
-    $('#' + self.idComponente).DropDownTree(options);
-  }
-
-  getTreeElementsChecked(element) {
-    var inputsSelected = element.find('input:checkbox:checked');
-    var arrayItemsSelected = [];
-
-    $.each(inputsSelected, function(key, elem) {
-      arrayItemsSelected.push(elem.value);
-    });
-
-    return arrayItemsSelected;
-  }
-
-  selectedElements() {
-    var self = this;
-    return self.getTreeElementsChecked($('#' + self.idComponente));
-  }
-
-  selectedElementsJoined() {
-    var self = this;
-    return self.selectedElements().join(',');
   }
 }
