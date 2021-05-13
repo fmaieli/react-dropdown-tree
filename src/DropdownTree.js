@@ -49,6 +49,8 @@ export default class DropdownTree extends React.Component {
   }
 
   render() {
-    return <div ref={el => (this.el = el)} />;
+    return (
+      <div ref={el => (this.el = el)} className={'dropdown dropdown-tree'} />
+    );
   }
 }
