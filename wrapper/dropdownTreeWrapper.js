@@ -1,7 +1,7 @@
-var $ = require("jquery");
-import "~/dropdown-tree/js/dropdowntree.js";
+var $ = require('jquery');
+import '~/dropdown-tree/js/dropdowntree.js';
 
-class DropdownTreeWrapper {
+export default class DropdownTreeWrapper {
   constructor(title, maxHeight, multiSelect, selectChildren, idComponente) {
     this.title = title;
     this.maxHeight = maxHeight;
