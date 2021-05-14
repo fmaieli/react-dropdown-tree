@@ -17,6 +17,7 @@ export default class App extends React.Component {
 
   onChangeDropdownTree(itemsSelected) {
     this.setState({ dropdownTreeItems: itemsSelected });
+    console.log(this.state.fancyTreeItems);
   }
 
   render() {

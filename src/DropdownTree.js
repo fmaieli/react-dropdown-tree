@@ -6,11 +6,13 @@ var $ = require('jquery');
 export default class DropdownTree extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { registeredList: [] };
     this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
     this.$el = $(this.el);
+    this.setState({ registeredList: this.props.data });
     this.init();
   }
 
@@ -34,7 +36,13 @@ export default class DropdownTree extends React.Component {
     this.$el.DropDownTree(options);
   }
 
-  onChange() {}
+  onChange() {
+    let itemsSelected = self.selectedElements();
+    let itemsSelectedFromList = itemsSelected.map(
+      i => this.state.registeredList[i]
+    );
+    self.props.onChange(itemsSelectedFromList);
+  }
 
   selectedElements() {
     var inputsSelected = this.$el.find('input:checkbox:checked');
