@@ -37,6 +37,12 @@ export default class DropdownTree extends React.Component {
   }
 
   onChange() {
+    // $('.checkbox').change(function() {
+    //   if (this.checked) {
+    //     //Do stuff
+    //   }
+    // });
+
     let itemsSelected = self.selectedElements();
     let itemsSelectedFromList = itemsSelected.map(
       i => this.state.registeredList[i]

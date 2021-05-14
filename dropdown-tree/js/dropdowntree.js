@@ -69,7 +69,7 @@ var dropDownOptions = {
               (options.multiSelect
                 ? '<label class="ui-corner-all"><input type="checkbox" value="' +
                   data[i].id +
-                  '"><span>' +
+                  '"z><span>' +
                   data[i].title +
                   '</span><a href="' +
                   (typeof data[i].href != 'undefined' && data[i].href != null
