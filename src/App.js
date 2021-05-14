@@ -9,7 +9,7 @@ export default class App extends React.Component {
 
     this.state = {
       dropdownTreeItems: [],
-      wrapper: new DropdownTreeMapper()
+      mapper: new DropdownTreeMapper()
     };
   }
 
@@ -29,7 +29,7 @@ export default class App extends React.Component {
           multiSelect={true}
           selectChildren={true}
           data={data}
-          wrapper={this.state.wrapper}
+          mapper={this.state.mapper}
           onChange={this.onChangeDropdownTree}
         />
       </div>
