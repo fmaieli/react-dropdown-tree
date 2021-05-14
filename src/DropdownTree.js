@@ -19,7 +19,10 @@ export default class DropdownTree extends React.Component {
   }
 
   init() {
-    var resultData = this.props.mapper.map(this.props.data);
+    let self = this;
+    let registeredList = [];
+
+    var resultData = this.props.mapper.map(this.props.data, registeredList);
     var options = {
       title: this.props.title,
       data: resultData,

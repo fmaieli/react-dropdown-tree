@@ -2,29 +2,21 @@ var $ = require('jquery');
 import '~/dropdown-tree/js/dropdowntree.js';
 
 export default class DropdownTreeMapper {
-  map(data) {
-    return data.map(x => this.mapToOption(x));
-  }
+  map(input, output) {
+    let self = this;
+    let mappedInput = input.map(x => {
+      output.push(x);
+      let combinations = null;
+      if (x.Combinaciones.length > 0) {
+        combinations = self.map(x.Combinaciones, output);
+      }
+      return {
+        id: output.length - 1,
+        title: x.Nombre,
+        data: combinations
+      };
+    });
 
-  mapToOption(element) {
-    var self = this;
-    var combinaciones = element.Combinaciones;
-    var combinations = null;
-
-    if (combinaciones.length > 0) {
-      combinations = [];
-      combinaciones.forEach(comb => {
-        var newCombinationOption = self.mapToOption(comb);
-        combinations.push(newCombinationOption);
-      });
-    }
-
-    var newOption = {
-      id: element.Id,
-      title: element.Nombre,
-      data: combinations
-    };
-
-    return newOption;
+    return mappedInput;
   }
 }
