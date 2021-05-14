@@ -1,17 +1,9 @@
 var $ = require('jquery');
 import '~/dropdown-tree/js/dropdowntree.js';
 
-export default class DropdownTreeWrapper {
+export default class DropdownTreeMapper {
   map(data) {
-    var self = this;
-    var arrayResult = [];
-
-    $.each(data, function(key, elem) {
-      var newOption = self.mapTipoEnsayoToOption(elem);
-      arrayResult.push(newOption);
-    });
-
-    return arrayResult;
+    return data.map(x => this.mapTipoEnsayoToOption(x));
   }
 
   mapTipoEnsayoToOption(element) {
