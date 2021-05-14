@@ -3,10 +3,10 @@ import '~/dropdown-tree/js/dropdowntree.js';
 
 export default class DropdownTreeMapper {
   map(data) {
-    return data.map(x => this.mapTipoEnsayoToOption(x));
+    return data.map(x => this.mapToOption(x));
   }
 
-  mapTipoEnsayoToOption(element) {
+  mapToOption(element) {
     var self = this;
     var combinaciones = element.Combinaciones;
     var combinations = null;
@@ -14,7 +14,7 @@ export default class DropdownTreeMapper {
     if (combinaciones.length > 0) {
       combinations = [];
       combinaciones.forEach(comb => {
-        var newCombinationOption = self.mapTipoEnsayoToOption(comb);
+        var newCombinationOption = self.mapToOption(comb);
         combinations.push(newCombinationOption);
       });
     }
