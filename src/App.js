@@ -1,6 +1,6 @@
 import React from 'react';
 import DropdownTree from './DropdownTree';
-import DropdownTreeWrapper from '../wrapper/dropdownTreeWrapper.js';
+import DropdownTreeMapper from '../mapper/dropdownTreeMapper.js';
 import data from '../data/data.js';
 
 export default class App extends React.Component {
@@ -9,7 +9,7 @@ export default class App extends React.Component {
 
     this.state = {
       dropdownTreeItems: [],
-      wrapper: new DropdownTreeWrapper()
+      wrapper: new DropdownTreeMapper()
     };
   }
 
